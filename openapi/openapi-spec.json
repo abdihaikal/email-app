@@ -1,0 +1,583 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/users": {
+      "post": {
+        "operationId": "UserController_createUser",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Create a new user",
+        "tags": [
+          "User"
+        ]
+      },
+      "get": {
+        "operationId": "UserController_getUsers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Users found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Get all users",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/users/{id}": {
+      "put": {
+        "operationId": "UserController_updateUser",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "User ID",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User updated successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Update an existing user",
+        "tags": [
+          "User"
+        ]
+      },
+      "delete": {
+        "operationId": "UserController_deleteUser",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "User ID",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User deleted successfully"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Delete an existing user",
+        "tags": [
+          "User"
+        ]
+      },
+      "get": {
+        "operationId": "UserController_getUserById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "User ID",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User found"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Get a user by id",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/users/email/{email}": {
+      "get": {
+        "operationId": "UserController_getUserByEmail",
+        "parameters": [
+          {
+            "name": "email",
+            "required": true,
+            "in": "path",
+            "description": "User email",
+            "schema": {
+              "format": "email",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User found"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "summary": "Get a user by email",
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/messages": {
+      "post": {
+        "operationId": "MessageController_createMessage",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMessageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The message has been successfully created."
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "Create a new message",
+        "tags": [
+          "Message"
+        ]
+      },
+      "get": {
+        "operationId": "MessageController_getMessages",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "The messages have been successfully retrieved."
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "Get all messages",
+        "tags": [
+          "Message"
+        ]
+      }
+    },
+    "/messages/{id}": {
+      "put": {
+        "operationId": "MessageController_updateMessage",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The id of the message",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMessageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The message has been successfully updated."
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "Update an existing message",
+        "tags": [
+          "Message"
+        ]
+      },
+      "delete": {
+        "operationId": "MessageController_deleteMessage",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The id of the message",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The message has been successfully deleted."
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "Delete an existing message",
+        "tags": [
+          "Message"
+        ]
+      },
+      "get": {
+        "operationId": "MessageController_getMessageById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The id of the message",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The message has been successfully retrieved."
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "Get a message by id",
+        "tags": [
+          "Message"
+        ]
+      }
+    },
+    "/messages/user/{id}": {
+      "get": {
+        "operationId": "MessageController_getMessageByUserId",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The user id to retrieve messages for",
+            "schema": {
+              "format": "uuid",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The messages have been successfully retrieved."
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "summary": "Get all messages by user id",
+        "tags": [
+          "Message"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Email Message API by Abdi Haikal",
+    "description": "API for managing user's email",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Abdi Haikal",
+      "url": "",
+      "email": ""
+    }
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "birthday_date": {
+            "type": "string",
+            "description": "User birthday in YYYY-MM-DD format",
+            "example": "1980-01-01"
+          },
+          "anniversary_date": {
+            "type": "string",
+            "description": "User anniversary in YYYY-MM-DD format",
+            "example": "2025-01-01"
+          },
+          "email": {
+            "type": "string",
+            "description": "User email address",
+            "example": "abdihaikal@email.com"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "User first name",
+            "example": "Abdi",
+            "minLength": 3,
+            "maxLength": 50
+          },
+          "middle_name": {
+            "type": "string",
+            "description": "User middle name",
+            "example": "",
+            "minLength": 3,
+            "maxLength": 50
+          },
+          "last_name": {
+            "type": "string",
+            "description": "User last name",
+            "example": "Haikal",
+            "minLength": 3,
+            "maxLength": 50
+          },
+          "location": {
+            "type": "string",
+            "description": "User timezone (IANA Time Zone Database identifier)",
+            "example": "Asia/Jakarta",
+            "minLength": 5,
+            "maxLength": 100,
+            "default": "Asia/Jakarta"
+          }
+        },
+        "required": [
+          "email",
+          "first_name",
+          "last_name"
+        ]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "birthday_date": {
+            "type": "string",
+            "description": "User birthday in YYYY-MM-DD format",
+            "example": "1980-01-01"
+          },
+          "anniversary_date": {
+            "type": "string",
+            "description": "User anniversary in YYYY-MM-DD format",
+            "example": "2025-01-01"
+          },
+          "email": {
+            "type": "string",
+            "description": "User email address",
+            "example": "abdihaikal@email.com"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "User first name",
+            "example": "Abdi",
+            "minLength": 3,
+            "maxLength": 50
+          },
+          "middle_name": {
+            "type": "string",
+            "description": "User middle name",
+            "example": "",
+            "minLength": 3,
+            "maxLength": 50
+          },
+          "last_name": {
+            "type": "string",
+            "description": "User last name",
+            "example": "Haikal",
+            "minLength": 3,
+            "maxLength": 50
+          },
+          "location": {
+            "type": "string",
+            "description": "User timezone (IANA Time Zone Database identifier)",
+            "example": "Asia/Jakarta",
+            "minLength": 5,
+            "maxLength": 100,
+            "default": "Asia/Jakarta"
+          }
+        }
+      },
+      "CreateMessageDto": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User ID",
+            "example": "123e4567-e89b-12d3-a456-4266"
+          },
+          "type": {
+            "type": "string",
+            "description": "Message type",
+            "example": "regular",
+            "default": "regular"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Message subject",
+            "example": "Regular message"
+          },
+          "content": {
+            "type": "string",
+            "description": "Message content",
+            "example": "Hi, this is your regular message"
+          },
+          "schedule_date": {
+            "type": "string",
+            "description": "Message schedule Date. Format: YYYY-MM-DD",
+            "example": "2023-01-01",
+            "default": null
+          }
+        },
+        "required": [
+          "user_id",
+          "subject"
+        ]
+      },
+      "UpdateMessageDto": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "User ID",
+            "example": "123e4567-e89b-12d3-a456-4266"
+          },
+          "type": {
+            "type": "string",
+            "description": "Message type",
+            "example": "regular",
+            "default": "regular"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Message subject",
+            "example": "Regular message"
+          },
+          "content": {
+            "type": "string",
+            "description": "Message content",
+            "example": "Hi, this is your regular message"
+          },
+          "schedule_date": {
+            "type": "string",
+            "description": "Message schedule Date. Format: YYYY-MM-DD",
+            "example": "2023-01-01",
+            "default": null
+          },
+          "status": {
+            "type": "string",
+            "description": "Message status: pending, processing, sent, failed",
+            "example": "pending",
+            "default": "pending"
+          },
+          "last_attempt_at": {
+            "type": "string",
+            "description": "Last attempt at",
+            "example": "2023-01-01T00:00:00.000Z"
+          },
+          "retries_attempted": {
+            "type": "number",
+            "description": "Retries attempted",
+            "example": 0,
+            "default": 0
+          }
+        }
+      }
+    }
+  }
+}

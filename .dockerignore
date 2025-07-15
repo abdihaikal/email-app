@@ -1,0 +1,16 @@
+# Ignore local dependencies, as they will be installed inside the container
+node_modules
+
+# Ignore build output, it will be generated inside the container
+dist
+
+# Ignore git and docker files
+.git
+.gitignore
+.dockerignore
+Dockerfile
+
+# Ignore logs and documentation
+npm-debug.log
+README.md
+LICENSE
