@@ -37,7 +37,7 @@ email-app/
 │   │   │   └── migrations/       # Database migration scripts
 │   │   ├── external/             # Integrations with external services
 │   │   └── queue/                # Message queueing system configuration
-│   ├── utils/                    # Common utility functions and helpers
+│   └── utils/                    # Common utility functions and helpers
 ├── test/                         # End-to-end and unit tests
 └── README.md                     # Project documentation
 ```
