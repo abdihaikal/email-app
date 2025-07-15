@@ -25,79 +25,21 @@ The project follows a modular, separation-of-concerns architecture with the foll
 ```
 email-app/
 ├── openapi/                      # OpenAPI (Swagger) specification files
-│   └── openapi-spec.json         # Generated OpenAPI specification
 ├── postman/                      # Postman collections and environments
-│   ├── Email Message API by Abdi Haikal.postman_collection.json
-│   └── Email Message API Environment by Abdi Haikal.postman_environment.json
 ├── scripts/                      # Utility scripts
-│   └── generate-openapi-spec.ts  # Script to generate OpenAPI specification
 ├── src/                          # Application source code
 │   ├── config/                   # Application configuration files
-│   │   ├── postgres.config.ts    # PostgreSQL database configuration
-│   │   └── redis.config.ts       # Redis server configuration
 │   ├── core/                     # Core business logic modules
 │   │   ├── messages/             # Message management module
-│   │   │   ├── entities/          # Domain entities and business rules for messages
-│   │   │   │   └── message.entity.ts
-│   │   │   ├── dtos/             # Data Transfer Objects for message operations
-│   │   │   │   ├── create-message.dto.ts
-│   │   │   │   ├── message-response.dto.ts
-│   │   │   │   └── update-message.dto.ts
-│   │   │   ├── providers/        # Service providers for message-related tasks
-│   │   │   │   ├── anniversary-message.service.ts
-│   │   │   │   ├── birthday-message.service.ts
-│   │   │   │   └── regular-message.service.ts
-│   │   │   ├── message.controller.ts # REST API endpoints for messages
-│   │   │   ├── message.module.ts # NestJS module definition for messages
-│   │   │   └── message.service.ts # Business logic for message operations
-│   │   ├── users/                # User management module
-│   │   │   ├── entities/          # Domain entities and business rules for users
-│   │   │   │   └── user.entity.ts
-│   │   │   ├── dtos/             # Data Transfer Objects for user operations
-│   │   │   │   ├── create-user.dto.ts
-│   │   │   │   ├── update-user.dto.ts
-│   │   │   │   └── user-response.dto.ts
-│   │   │   ├── utils/            # Utility pipes for core modules
-│   │   │   │   ├── custom-parse-uuid.pipe.ts
-│   │   │   │   └── parse-email.pipe.ts
-│   │   │   ├── user.controller.ts # REST API endpoints for users
-│   │   │   ├── user.module.ts    # NestJS module definition for users
-│   │   │   └── user.service.ts   # Business logic for user operations
-│   │   └── core.module.ts        # Aggregates core modules
+│   │   └── users/                # User management module
 │   ├── infra/                    # Infrastructure concerns (database, external services, queue)
 │   │   ├── database/             # Database configuration and migrations
-│   │   │   ├── migrations/       # Database migration scripts
-│   │   │   │   └── 1672531200000-CreateUsersAndMessagesTables.ts
-│   │   │   └── database.module.ts # NestJS module for database integration
+│   │   │   └── migrations/       # Database migration scripts
 │   │   ├── external/             # Integrations with external services
-│   │   │   ├── email-service.client.ts # Client for interacting with external email APIs
-│   │   │   └── external.module.ts # NestJS module for external service integrations
 │   │   └── queue/                # Message queueing system configuration
-│   │       ├── message.consumer.ts # Consumer for processing messages from the queue
-│   │       ├── message.producer.ts # Producer for adding messages to the queue
-│   │       ├── queue.constant.ts # Constants related to queue names and types
-│   │       └── queue.module.ts   # NestJS module for BullMQ integration
 │   ├── utils/                    # Common utility functions and helpers
-│   │   ├── luxon-date.spec.ts    # Tests for Luxon date utilities
-│   │   └── luxon-date.ts         # Luxon date utility functions
-│   ├── app.module.ts             # Root application module
-│   ├── infra.module.ts           # Aggregates infrastructure modules
-│   ├── main.ts                   # Application entry point
-│   └── swagger.ts                # Swagger API documentation setup
 ├── test/                         # End-to-end and unit tests
-│   └── jest-e2e.json             # Jest configuration for e2e tests
-├── .env                          # Environment variables for local setup
-├── .env.example                  # Example environment variables
-├── .prettierrc                   # Prettier configuration file
-├── docker-compose.yaml           # Docker Compose configuration for multi-service setup
-├── Dockerfile                    # Docker build instructions for the application
-├── eslint.config.mjs             # ESLint configuration file
-├── nest-cli.json                 # NestJS CLI configuration
-├── package-lock.json             # npm dependency lock file
-├── package.json                  # Project dependencies and scripts
-├── README.md                     # Project documentation
-├── tsconfig.build.json           # TypeScript build configuration
-└── tsconfig.json                 # TypeScript compiler configuration
+└── README.md                     # Project documentation
 ```
 
 ## Features
