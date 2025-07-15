@@ -37,7 +37,7 @@ email-app/
 │   │   └── redis.config.ts       # Redis server configuration
 │   ├── core/                     # Core business logic modules
 │   │   ├── messages/             # Message management module
-│   │   │   ├── domains/          # Domain entities and business rules for messages
+│   │   │   ├── entities/          # Domain entities and business rules for messages
 │   │   │   │   └── message.entity.ts
 │   │   │   ├── dtos/             # Data Transfer Objects for message operations
 │   │   │   │   ├── create-message.dto.ts
@@ -51,7 +51,7 @@ email-app/
 │   │   │   ├── message.module.ts # NestJS module definition for messages
 │   │   │   └── message.service.ts # Business logic for message operations
 │   │   ├── users/                # User management module
-│   │   │   ├── domains/          # Domain entities and business rules for users
+│   │   │   ├── entities/          # Domain entities and business rules for users
 │   │   │   │   └── user.entity.ts
 │   │   │   ├── dtos/             # Data Transfer Objects for user operations
 │   │   │   │   ├── create-user.dto.ts
