@@ -194,12 +194,6 @@ Features `users` and `messages` tables with a foreign key relationship.
 2.  Start application: `npm start` (production).
 3.  Start development with hot reload: `npm run start:dev`
 
-### Running Tests
-
-  * Run all tests: `npm test`
-  * Run e2e tests: `npm run test:e2e`
-  * Run unit tests: `npm run test:unit`
-
 ### Docker
 
   * Start backend services (app, Postgres, Redis): `docker compose up --profile backend -d`
